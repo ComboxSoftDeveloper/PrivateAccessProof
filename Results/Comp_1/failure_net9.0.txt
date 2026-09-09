@@ -1,0 +1,20 @@
+Рантайм: 9.0.19
+
+Метод доступа объявлен так:
+
+  [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "_tokenn")]
+  internal static extern ref string Missing(Secret instance);
+
+Поля _tokenn в типе нет: в имени опечатка.
+
+Сборка прошла: True
+  вызов не прошёл
+  тип исключения: System.MissingFieldException
+  сообщение:      Field not found: 'PrivateAccessProof.Types.Secret._tokenn'.
+
+Рефлексия в той же ситуации ведёт себя иначе:
+  GetField вернул: null
+
+Рефлексия отдаёт null, и проверить это можно сразу.
+UnsafeAccessor бросает исключение при первом вызове,
+и до этого момента ошибка себя не проявляет.

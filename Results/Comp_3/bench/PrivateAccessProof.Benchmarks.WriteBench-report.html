@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>PrivateAccessProof.Benchmarks.WriteBench-20260909-212724</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.15.8, Windows 10 (10.0.20348.5139)
+Intel Xeon W-2255 CPU 3.70GHz, 1 CPU, 20 logical and 10 physical cores
+.NET SDK 11.0.100-preview.6.26359.118
+  [Host] : .NET 10.0.1 (10.0.1, 10.0.125.57005), X64 RyuJIT x86-64-v4
+  net10  : .NET 10.0.1 (10.0.1, 10.0.125.57005), X64 RyuJIT x86-64-v4
+  net8   : .NET 8.0.11 (8.0.11, 8.0.1124.51707), X64 RyuJIT x86-64-v4
+  net9   : .NET 9.0.4 (9.0.4, 9.0.425.16305), X64 RyuJIT x86-64-v4
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Job</th><th>Toolchain</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Code Size</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>Reflection</td><td>net10</td><td>net10</td><td>9.730 ns</td><td>0.1122 ns</td><td>0.0937 ns</td><td>1.00</td><td>0.01</td><td>2,468 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Expression</td><td>net10</td><td>net10</td><td>3.257 ns</td><td>0.0785 ns</td><td>0.0734 ns</td><td>0.33</td><td>0.01</td><td>56 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Emit</td><td>net10</td><td>net10</td><td>4.302 ns</td><td>0.0565 ns</td><td>0.0529 ns</td><td>0.44</td><td>0.01</td><td>56 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Accessor</td><td>net10</td><td>net10</td><td>1.993 ns</td><td>0.0620 ns</td><td>0.0609 ns</td><td>0.20</td><td>0.01</td><td>31 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Reflection</td><td>net8</td><td>net8</td><td>36.233 ns</td><td>0.1358 ns</td><td>0.1061 ns</td><td>3.72</td><td>0.04</td><td>923 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Expression</td><td>net8</td><td>net8</td><td>3.346 ns</td><td>0.0796 ns</td><td>0.0621 ns</td><td>0.34</td><td>0.01</td><td>56 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Emit</td><td>net8</td><td>net8</td><td>4.381 ns</td><td>0.0721 ns</td><td>0.0602 ns</td><td>0.45</td><td>0.01</td><td>56 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Accessor</td><td>net8</td><td>net8</td><td>2.228 ns</td><td>0.0402 ns</td><td>0.0376 ns</td><td>0.23</td><td>0.00</td><td>31 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Reflection</td><td>net9</td><td>net9</td><td>10.449 ns</td><td>0.2296 ns</td><td>0.2255 ns</td><td>1.07</td><td>0.02</td><td>2,212 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Expression</td><td>net9</td><td>net9</td><td>3.249 ns</td><td>0.0322 ns</td><td>0.0269 ns</td><td>0.33</td><td>0.00</td><td>56 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Emit</td><td>net9</td><td>net9</td><td>4.301 ns</td><td>0.0574 ns</td><td>0.0509 ns</td><td>0.44</td><td>0.01</td><td>56 B</td><td>-</td><td>NA</td>
+</tr><tr><td>Accessor</td><td>net9</td><td>net9</td><td>2.195 ns</td><td>0.0427 ns</td><td>0.0378 ns</td><td>0.23</td><td>0.00</td><td>31 B</td><td>-</td><td>NA</td>
+</tr></tbody></table>
+</body>
+</html>

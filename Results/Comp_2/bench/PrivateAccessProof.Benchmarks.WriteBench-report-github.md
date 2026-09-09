@@ -1,0 +1,26 @@
+```
+
+BenchmarkDotNet v0.15.8, Windows 10 (10.0.17763.3165/1809/October2018Update/Redstone5)
+AMD Ryzen 9 5950X 3.39GHz, 1 CPU, 32 logical and 16 physical cores
+.NET SDK 11.0.100-preview.5.26302.115
+  [Host] : .NET 10.0.5 (10.0.5, 10.0.526.15411), X64 RyuJIT x86-64-v3
+  net10  : .NET 10.0.5 (10.0.5, 10.0.526.15411), X64 RyuJIT x86-64-v3
+  net8   : .NET 8.0.29 (8.0.29, 8.0.2926.32403), X64 RyuJIT x86-64-v3
+  net9   : .NET 9.0.18 (9.0.18, 9.0.1826.31522), X64 RyuJIT x86-64-v3
+
+
+```
+| Method     | Job   | Toolchain | Mean      | Error     | StdDev    | Median    | Ratio | RatioSD | Code Size | Allocated | Alloc Ratio |
+|----------- |------ |---------- |----------:|----------:|----------:|----------:|------:|--------:|----------:|----------:|------------:|
+| Reflection | net10 | net10     |  7.477 ns | 0.1696 ns | 0.2486 ns |  7.382 ns |  1.00 |    0.05 |   2,468 B |         - |          NA |
+| Expression | net10 | net10     |  2.941 ns | 0.0836 ns | 0.1870 ns |  2.859 ns |  0.39 |    0.03 |      56 B |         - |          NA |
+| Emit       | net10 | net10     |  3.428 ns | 0.0925 ns | 0.1803 ns |  3.383 ns |  0.46 |    0.03 |      56 B |         - |          NA |
+| Accessor   | net10 | net10     |  2.152 ns | 0.0621 ns | 0.0551 ns |  2.136 ns |  0.29 |    0.01 |      31 B |         - |          NA |
+| Reflection | net8  | net8      | 41.733 ns | 1.1690 ns | 3.3915 ns | 40.398 ns |  5.59 |    0.48 |     918 B |         - |          NA |
+| Expression | net8  | net8      |  3.387 ns | 0.0908 ns | 0.1359 ns |  3.361 ns |  0.45 |    0.02 |      56 B |         - |          NA |
+| Emit       | net8  | net8      |  4.305 ns | 0.2717 ns | 0.7619 ns |  4.024 ns |  0.58 |    0.10 |      56 B |         - |          NA |
+| Accessor   | net8  | net8      |  1.997 ns | 0.0631 ns | 0.1344 ns |  1.995 ns |  0.27 |    0.02 |      31 B |         - |          NA |
+| Reflection | net9  | net9      |  8.005 ns | 0.3071 ns | 0.8812 ns |  7.585 ns |  1.07 |    0.12 |   2,212 B |         - |          NA |
+| Expression | net9  | net9      |  2.989 ns | 0.0841 ns | 0.2273 ns |  2.880 ns |  0.40 |    0.03 |      56 B |         - |          NA |
+| Emit       | net9  | net9      |  3.367 ns | 0.0918 ns | 0.0814 ns |  3.333 ns |  0.45 |    0.02 |      56 B |         - |          NA |
+| Accessor   | net9  | net9      |  1.954 ns | 0.0644 ns | 0.1626 ns |  1.892 ns |  0.26 |    0.02 |      31 B |         - |          NA |
